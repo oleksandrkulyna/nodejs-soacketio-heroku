@@ -5,9 +5,9 @@
       let socket = io();
       let el;
 
-      socket.on('time', (timeString) => {
+      socket.on('updated', (data) => {
         el = document.getElementById('server-time');
-        el.innerHTML = 'Server time: ' + timeString;
+        el.innerHTML = `${data.openConnections} open connections.`
       });
     </script>
   </head>

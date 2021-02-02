@@ -1,0 +1,21 @@
+config:
+  target: "http://localhost:3000"
+  ensure:
+    max: 500 # fail if max response time exceeds 500ms
+    maxErrorRate: 1 # fail if error rate exceeds 1%
+  socketio:
+    transports: ["websocket"]
+  phases:
+    - duration: 60
+      arrivalRate: 100
+      name: "1 min/ 50 connections per sec"
+#    - duration: 60
+#      arrivalRate: 100
+#      name: "1 min/ 100 connections per sec"
+scenarios:
+  - engine: "socketio"
+    flow:
+      - emit:
+          channel: "ping"
+          data: "hello there"
+      - think: 300 # stay connected for 5 minutes
