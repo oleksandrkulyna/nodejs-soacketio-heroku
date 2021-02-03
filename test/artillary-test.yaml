@@ -7,7 +7,7 @@ config:
   socketio:
     transports: [ "websocket" ]
   phases:
-    - duration: 150
+    - duration: 70
       arrivalRate: 10
       #        rampUp: 50
       name: "1 min/ 50 connections per sec"
