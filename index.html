@@ -9,7 +9,7 @@
         el = document.getElementById('server-time');
         el.innerHTML = `${data.openConnections} open connections.`
       });
-      socket.on('error', function (err) {
+      socket.on('connect_failed', function (err) {
         el = document.getElementById('error');
         el.innerHTML = `${err} occurred.`;
       })

@@ -1,23 +1,23 @@
 config:
   target: "ws://limitless-ravine-03791.herokuapp.com"
-#  target: "ws://localhost:3000"
+  #  target: "ws://localhost:3000"
   ensure:
     max: 500 # fail if max response time exceeds 500ms
     maxErrorRate: 1 # fail if error rate exceeds 1%
   socketio:
-    transports: ["websocket"]
+    transports: [ "websocket" ]
   phases:
     - duration: 150
       arrivalRate: 10
-#        rampUp: 50
+      #        rampUp: 50
       name: "1 min/ 50 connections per sec"
 #    - duration: 60
 #      arrivalRate: 100
 #      name: "1 min/ 100 connections per sec"
-scenarios:git
+scenarios:
   - engine: "socketio"
     flow:
-#      - emit:
-#          channel: "ping"
-#          data: "ping"
+      #      - emit:
+      #          channel: "ping"
+      #          data: "ping"
       - think: 600 # stay connected for 5 minutes
