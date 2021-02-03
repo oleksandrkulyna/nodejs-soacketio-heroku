@@ -7,17 +7,13 @@ config:
   socketio:
     transports: [ "websocket" ]
   phases:
-    - duration: 70
-      arrivalRate: 10
-      #        rampUp: 50
-      name: "1 min/ 50 connections per sec"
-#    - duration: 60
-#      arrivalRate: 100
-#      name: "1 min/ 100 connections per sec"
+    - duration: 180 # Run scenario for n seconds
+      arrivalRate: 10 # Create n connections/sec
+      name: "The phase were I have played with different duration/arrivalRate numbers"
 scenarios:
   - engine: "socketio"
     flow:
-      #      - emit:
-      #          channel: "ping"
-      #          data: "ping"
-      - think: 600 # stay connected for 5 minutes
+#      - emit:
+#          channel: "ping"
+#          data: "ping"
+      - think: 600 # stay connected for 10 minutes
