@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 const INDEX = '/index.html';
 
 const server = express()
+    .use('/regular', (req, res) => res.status(200).send({currentTimestamp: Date.now()}))
     .use((req, res) => res.sendFile(INDEX, {root: __dirname}))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
@@ -21,9 +22,9 @@ io.on('connection', (socket) => {
         openConnections
     });
 
-    socket.on('ping', (data) => {
-        console.log('ping', data);
-    });
+    // socket.on('ping-ping', (data) => {
+    //     console.log('ping', data);
+    // });
 
     socket.on('disconnect', () => {
         openConnections--;
