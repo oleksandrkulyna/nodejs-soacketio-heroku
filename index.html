@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      let socket = io();
+      let el;
+
+      socket.on('updated', (data) => {
+        el = document.getElementById('server-time');
+        el.innerHTML = `${data.openConnections} open connections.`
+      });
+    </script>
+  </head>
+  <body>
+    <p id="server-time"></p>
+  </body>
+</html>

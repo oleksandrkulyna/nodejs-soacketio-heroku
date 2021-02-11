@@ -1,0 +1,19 @@
+config:
+  target: "ws://limitless-ravine-03791.herokuapp.com"
+#  target: "ws://localhost:3000"
+#  ensure:
+#    max: 500 # fail if max response time exceeds 500ms
+#    maxErrorRate: 1 # fail if error rate exceeds 1%
+  socketio:
+    transports: [ "websocket" ]
+  phases:
+    - duration: 150 # Run scenario for n seconds
+      arrivalRate: 10 # Create n connections/sec
+      name: "The phase were I have played with different duration/arrivalRate numbers"
+scenarios:
+  - engine: "socketio"
+    flow:
+#      - emit:
+#          channel: "ping-ping"
+#          data: "pong"
+      - think: 600 # stay connected for 10 minutes

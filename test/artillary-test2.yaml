@@ -1,0 +1,12 @@
+config:
+  target: "https://limitless-ravine-03791.herokuapp.com"
+#  target: "http://localhost:3000"
+  phases:
+    - duration: 100 # Run scenario for n seconds
+      arrivalRate: 10 # Create n connections/sec
+      name: "The phase were I have played with different duration/arrivalRate numbers"
+scenarios:
+  - flow:
+      - get:
+          url: "/regular"
+      - think: 300 # stay connected for 10 minutes
